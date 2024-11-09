@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liên Hệ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .wrapper {
+            margin: 0px auto;
+            width: 1140px;
+            height: 1140px;
+        }
+        
+        header {
+            background-color: #ff6961;
+            position: relative;
+            height: 10%;
+        }
+        
+        header h1 {
+            font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+            color: white;
+            position: absolute;
+            top: 35px;
+            left: 35px;
+        }
+        
+        header h4 {
+            position: absolute;
+            color: white;
+            left: 35px;
+            top: 75px;
+            font-family: monospace;
+        }
+        
+        header nav {
+            position: absolute;
+            top: 35px;
+            left: 250px;
+            width: 50%;
+        }
+        
+        header a {
+            color: white;
+        }
+        
+        header a:hover {
+            color: aliceblue;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: #ff6961;
+            color: white;
+        }
+        
+        .search-container {
+            position: absolute;
+            right: 25px;
+            top: 50px;
+            border: none;
+            width: 250px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-container input {
+            width: 85%;
+            position: absolute;
+            left: 5px;
+            border: none;
+        }
+        
+        .search-container i {
+            position: absolute;
+            right: 10px;
+            border: none;
+        }
+        
+        header div {
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            background-color: white;
+            display: flex;
+            justify-content: end;
+        }
+        
+        header div a {
+            color: black;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        
+        header div img {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        
+        header div a:hover {
+            color: #ff6961;
+        }
+        
+        #banner {
+            padding: 30px;
+            border: 3px solid #ff6961;
+        }
+        
+        #h2 {
+            text-align: center;
+            padding-top: 10px;
+            background-color: #ffe2e1;
+        }
+        
+        .product-list {
+            margin-top: 30px;
+        }
+        
+        #sp {
+            border: 3px solid #ff6961;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .product-list {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        
+        .card {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            background-color: white;
+            border: 2px solid #ff6961;
+            /* background: linear-gradient(
+          100deg,
+          #ffe2e4,
+          #ffabe6,
+          #ffe2e4
+        ); Thêm gradient */
+            /* border: none; */
+            margin-bottom: 10px;
+            color: black;
+            font-weight: bold;
+        }
+        
+        .card img {
+            margin-top: 1px;
+            height: 230px;
+            width: 100%;
+            border-bottom: 2px solid #ff6961;
+        }
+        
+        .btn:hover {
+            background-color: white;
+            color: black;
+            border: 2px solid #ff6961;
+        }
+        
+        .btn {
+            color: white;
+            background-color: #ff6961;
+            border: none;
+            font-weight: bold;
+        }
+        
+        .card h5 {
+            color: black;
+            font-family: monospace;
+        }
+        
+        footer {
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            background-color: #ff6961;
+            height: 15%;
+            color: white;
+            position: relative;
+        }
+        
+        footer div {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+        
+        footer h1 {
+            position: relative;
+            font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        }
+        
+        footer h4 {
+            position: absolute;
+            top: 60px;
+            font-family: monospace;
+        }
+        
+        footer p {
+            position: absolute;
+            bottom: 0px;
+            left: 10px;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .contact-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ff6961;
+            border-radius: 8px;
+            background-color: white;
+        }
+        
+        .contact-container h2 {
+            text-align: center;
+            color: #ff6961;
+        }
+        
+        .form-group label {
+            color: #333;
+        }
+        
+        .btn-submit {
+            background-color: #ff6961;
+            color: white;
+            font-weight: bold;
+            border: none;
+            width: 100%;
+        }
+        
+        .btn-submit:hover {
+            background-color: white;
+            color: #ff6961;
+            border: 2px solid #ff6961;
+        }
+        
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $("#contactForm").on("submit", function(event) {
+                event.preventDefault();
+
+                // Khai báo các biến
+                let name = $("#name").val().trim();
+                let email = $("#email").val().trim();
+                let phone = $("#phone").val().trim();
+
+                // Xóa các thông báo lỗi trước đó
+                $("#nameError").text("");
+                $("#emailError").text("");
+                $("#phoneError").text("");
+
+                let isValid = true;
+
+                // Kiểm tra Tên: phải có ít nhất 2 ký tự và viết hoa chữ cái đầu
+                let nameRegex = /^([A-Z]{1}[a-z]+)(\s[A-Z]{1}[a-z]*)+$/;
+                if (!nameRegex.test(name)) {
+                    $("#nameError").text("Tên phải có ít nhất 2 từ, viết hoa chữ cái đầu mỗi từ và không có dấu");
+                    isValid = false;
+                }
+
+                // Kiểm tra Email: phải kết thúc bằng @gmail.com
+                let emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+                if (!emailRegex.test(email)) {
+                    $("#emailError").text("Email phải kết thúc bằng @gmail.com.");
+                    isValid = false;
+                }
+
+                // Kiểm tra Số điện thoại: phải là 11 chữ số
+                let phoneRegex = /^\d{10}$/;
+                if (!phoneRegex.test(phone)) {
+                    $("#phoneError").text("Số điện thoại phải có đúng 10 chữ số.");
+                    isValid = false;
+                }
+
+                // Nếu không có lỗi, cho phép gửi form
+                if (isValid) {
+                    alert("Thông tin của bạn đã được gửi thành công!");
+                    $("#contactForm").unbind("submit").submit();
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <div>
+                <img src="../img/giohang.png" height="20px" />
+                <a href="">Giỏ Hàng</a>
+                <img src="../img/dangNhap.png" height="20px" />
+                <a href="">Đăng Nhập</a>
+                <a href="">Đăng Ký</a>
+            </div>
+            <h1>SNEAKER</h1>
+            <h4>MakeMoodFoot</h4>
+            <nav class="navbar navbar-expand-sm nav-tabs">
+                <!-- Links -->
+                <ul class="navbar-nav w-100 d-flex justify-content-between">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Trang chủ</a>
+                    </li>
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Sản phẩm
+              </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Giày Nam</a>
+                            <a class="dropdown-item" href="#">Giày Nữ</a>
+                            <a class="dropdown-item" href="#">Phụ Kiện</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Thông Tin</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link">Liên Hệ</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="search-container">
+                <input type="text" placeholder="Tìm Kiếm" />
+                <i class="fas fa-search"></i>
+            </div>
+        </header>
+
+        <div class="contact-container">
+            <h2>LIÊN HỆ VỚI CHÚNG TÔI</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Tên:</label>
+                    <input type="text" class="form-control" id="name" placeholder="Nhập tên của bạn">
+                    <small class="error-message" id="nameError"></small>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Nhập email của bạn">
+                    <small class="error-message" id="emailError"></small>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Số điện thoại:</label>
+                    <input type="tel" class="form-control" id="phone" placeholder="Nhập số điện thoại của bạn">
+                    <small class="error-message" id="phoneError"></small>
+                </div>
+                <div class="form-group">
+                    <label for="message">Tin nhắn:</label>
+                    <textarea class="form-control" id="message" rows="5" placeholder="Nhập ý kiến của bạn"></textarea>
+                </div>
+                <button type="submit" class="btn btn-submit">Gửi</button>
+            </form>
+        </div>
+
+
+        <!-- foot -->
+        <footer>
+            <div>
+                <h1>SNEAKER</h1>
+                <h4>MakeMoodFoot</h4>
+                <p>Copyright © 2024 SNEAKER. All rights reserved.</p>
+            </div>
+            <div>
+                <h5>Sản phẩm</h5>
+                <h6>Giày Nam</h6>
+                <h6>Giày Nữ</h6>
+                <h6>Phụ Kiện</h6>
+            </div>
+            <!-- <div>
+          <h5>Về chúng tôi</h5>
+        </div> -->
+            <div>
+                <h5>Liên hệ</h5>
+                <h6>Email</h6>
+                <h6>sneaker.contact@email.com</h6>
+                <h6>Hotline</h6>
+                <h6>0909098386</h6>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
